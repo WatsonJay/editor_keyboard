@@ -19,4 +19,4 @@ COMMAND_ENABLE ?= no    # Commands for debug and configuration
 NKRO_ENABLE ?= yes		# USB Nkey Rollover - if this doesn't work, see here: https://github.com/tmk/tmk_keyboard/wiki/FAQ#nkro-doesnt-work
 BACKLIGHT_ENABLE ?= no  # Enable keyboard backlight functionality
 AUDIO_ENABLE ?= no
-
+ENCODER_ENABLE = yes
