@@ -34,6 +34,14 @@
 #define RGBLED_NUM 15
 #define RGB_DI_PIN D3
 
+#define DEBOUNCE 5
 #ifdef RGB_DI_PIN
 #define RGBLIGHT_ANIMATIONS
 #endif
+
+#define ENCODERS_PAD_A { B2, B3, F6 }
+#define ENCODERS_PAD_B { B6, B1, F7 }
+
+#define ENCODER_RESOLUTION 4
+
+#define SSD1306OLED
