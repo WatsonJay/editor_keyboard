@@ -1,5 +1,10 @@
 {
     "manufacturer": "WatsonJay",
     "keyboard_name": "editor_marco",
-    "maintainer": "WatsonJay"
+    "maintainer": "WatsonJay",
+    "usb": {
+        "vid": "0xFEED",
+        "pid": "0x6060",
+        "device_version": "0.0.1"
+    },
 }
