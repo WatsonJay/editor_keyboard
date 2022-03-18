@@ -15,6 +15,11 @@
 
 #include "config_common.h"
 
+/* USB Device descriptor parameter */
+#define VENDOR_ID       0xFEED //Sublicense from Microchip Technology
+#define PRODUCT_ID      0x6060 //Sublicense from Microchip Technology
+#define DEVICE_VER      0x0001
+#define MANUFACTURER    WatsonJay
 
 /* key matrix size */
 #define MATRIX_ROWS 5
