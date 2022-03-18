@@ -46,4 +46,7 @@
 
 #define ENCODER_RESOLUTION 4
 
+/* define oled display*/
 #define SSD1306OLED
+#define OLED_DISPLAY_128X64
+#define OLED_TIMEOUT 100000
