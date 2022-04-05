@@ -34,7 +34,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 bool encoder_update_user(uint8_t index, bool clockwise) {
     uint8_t layer = biton32(layer_state);
     if (index == 0) { /* First encoder */
-        if (clockwise) {
+        if (!clockwise) {
            register_code(keymap_key_to_keycode(layer, (keypos_t) {.row = 4, .col = 0
             }));
            unregister_code(keymap_key_to_keycode(layer, (keypos_t) {.row = 4, .col = 0
@@ -46,7 +46,7 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
             }));
         }
     } else if (index == 1) {
-        if (clockwise) {
+        if (!clockwise) {
            register_code(keymap_key_to_keycode(layer, (keypos_t) {.row = 4, .col = 2
             }));
            unregister_code(keymap_key_to_keycode(layer, (keypos_t) {.row = 4, .col = 2
@@ -58,7 +58,7 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
             }));
         }
     } else if (index == 2){
-        if (clockwise) {
+        if (!clockwise) {
             register_code(keymap_key_to_keycode(layer, (keypos_t) {.row = 3, .col = 0
             }));
            unregister_code(keymap_key_to_keycode(layer, (keypos_t) {.row = 3, .col = 0
