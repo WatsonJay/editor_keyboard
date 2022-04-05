@@ -1,3 +1,4 @@
+# This file intentionally left blank
 # MCU name
 MCU = atmega32u4
 

@@ -1,6 +1,10 @@
 // Copyright 2022 WatsonJay (@WatsonJay)
 // SPDX-License-Identifier: GPL-2.0-or-later
 
+/*
+ * Feature disable options
+ *  These options are also useful to firmware size reduction.
+ */
 #pragma once
 
 /*
@@ -16,7 +20,10 @@
 #include "config_common.h"
 
 /* USB Device descriptor parameter */
+#define VENDOR_ID       0xFEED
+#define PRODUCT_ID      0x6062
 #define DEVICE_VER      0x0001
+#define PRODUCT editorMacros
 
 /* key matrix size */
 #define MATRIX_ROWS 5
@@ -49,3 +56,13 @@
 #define SSD1306OLED
 #define OLED_DISPLAY_128X64
 #define OLED_TIMEOUT 100000
+/* disable debug print */
+//#define NO_DEBUG
+
+/* disable print */
+//#define NO_PRINT
+
+/* disable action features */
+//#define NO_ACTION_LAYER
+//#define NO_ACTION_TAPPING
+//#define NO_ACTION_ONESHOT
