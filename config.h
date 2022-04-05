@@ -36,7 +36,6 @@
 #define RGBLED_NUM 15
 #define RGB_DI_PIN D3
 
-#define DEBOUNCE 5
 #ifdef RGB_DI_PIN
 #define RGBLIGHT_ANIMATIONS
 #endif

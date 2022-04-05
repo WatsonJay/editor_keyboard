@@ -1,10 +1,41 @@
 {
+    "keyboard_name": "editorMacros",
     "manufacturer": "WatsonJay",
-    "keyboard_name": "editor_marco",
     "maintainer": "WatsonJay",
+    "keyboard_folder": "editorMacros",
     "usb": {
         "vid": "0xFEED",
         "pid": "0x6062",
         "device_version": "0.0.1"
+    },
+    "layouts": {
+        "LAYOUT": {
+            "layout": [
+                {"label":"0,0", "matrix": [0, 0], "x":1, "y":0, "w":1.5, "h":1.5},
+                {"label":"0,1", "matrix": [0, 1], "x":4.5, "y":0, "w":1.5, "h":1.5},
+                {"label":"4,0", "matrix": [4, 0], "x":0, "y":0.25},
+                {"label":"4,1", "matrix": [4, 1], "x":2.5, "y":0.25},
+                {"label":"4,2", "matrix": [4, 2], "x":3.5, "y":0.25},
+                {"label":"4,3", "matrix": [4, 3], "x":6, "y":0.25},
+                {"label":"1,0", "matrix": [1, 0], "x":0.5, "y":1.5},
+                {"label":"1,1", "matrix": [1, 1], "x":2, "y":1.5},
+                {"label":"0,2", "matrix": [0, 2], "x":3.5, "y":1.5},
+                {"label":"0,3", "matrix": [0, 3], "x":4.75, "y":1.5},
+                {"label":"2,0", "matrix": [2, 0], "x":0.5, "y":2.5},
+                {"label":"2,1", "matrix": [2, 1], "x":2, "y":2.5},
+                {"label":"1,2", "matrix": [1, 2], "x":3.5, "y":2.5},
+                {"label":"1,3", "matrix": [1, 3], "x":4.75, "y":2.5},
+                {"label":"1,4", "matrix": [1, 4], "x":6, "y":2.5},
+                {"label":"2,2", "matrix": [2, 2], "x":3.5, "y":3.5},
+                {"label":"2,3", "matrix": [2, 3], "x":4.75, "y":3.5},
+                {"label":"2,4", "matrix": [2, 4], "x":6, "y":3.5},
+                {"label":"3,1", "matrix": [3, 1], "x":1, "y":3.75, "w":1.5, "h":1.5},
+                {"label":"3,0", "matrix": [3, 0], "x":0, "y":4},
+                {"label":"0,4", "matrix": [0, 4], "x":2.5, "y":4},
+                {"label":"3,2", "matrix": [3, 2], "x":3.5, "y":4.5},
+                {"label":"3,3", "matrix": [3, 3], "x":4.75, "y":4.5},
+                {"label":"3,4", "matrix": [3, 4],   "x":6, "y":4.5}
+            ]
+        }
     }
 }

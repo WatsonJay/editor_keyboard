@@ -7,13 +7,13 @@
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-    [_LY0] = KEYMAP(
+    [_LY0] = LAYOUT(
         KC_MSTP, KC_MPLY, KC_0, TO(0), KC_RGHT,
 		KC_ESC,  KC_MUTE, KC_1, KC_2, KC_3,
 		KC_SLEP, KC_WAKE, KC_4, KC_5, KC_6,
 		KC_LEFT, KC_ENT,  KC_7, KC_8, KC_9,
 		KC_VOLD, KC_VOLU, KC_PGDN, KC_PGUP
-    ),
+    )
 };
 
 void matrix_init_user(void) {
@@ -32,5 +32,25 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 bool encoder_update_user(uint8_t index, bool clockwise) {
-    
+    if (index == 0) { /* First encoder */
+        if (clockwise) {
+            tap_code(KC_VOLD);
+        } else {
+            tap_code(KC_VOLU);
+        }
+    } else if (index == 1) {
+        if (clockwise) {
+            tap_code(KC_PGDN);
+        } else {
+            tap_code(KC_PGUP);
+        }
+    } else if (index == 2){
+        if (clockwise) {
+            tap_code(KC_LEFT);
+        } else {
+            tap_code(KC_RGHT);
+        }
+    }
+    return true;
 }
+

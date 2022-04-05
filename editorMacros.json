@@ -1,9 +1,9 @@
 {
-    "name": "editor_marco",
-    "keyboard_name": "editor_marco",
+    "name": "editorMarcos",
+    "keyboard_name": "editorMarcos",
     "maintainer": "WatsonJay",
     "vendorId": "0xFEED",
-    "productId": "0x6060",
+    "productId": "0x6062",
     "lighting": "qmk_rgblight",
     "matrix": { "rows": 5, "cols": 5 },
     "layouts": {
