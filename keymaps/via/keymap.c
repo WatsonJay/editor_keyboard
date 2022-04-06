@@ -22,10 +22,10 @@ void matrix_init_user(void) {
 void matrix_scan_user(void) {
 }
 
-void keyboard_post_init_user(void) {
-  debug_enable = true;
-  debug_matrix = true;
-}
+// void keyboard_post_init_user(void) {
+//   debug_enable = true;
+//   debug_matrix = true;
+// }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 	return true;

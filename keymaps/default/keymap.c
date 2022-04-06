@@ -33,19 +33,19 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 
 bool encoder_update_user(uint8_t index, bool clockwise) {
     if (index == 0) { /* First encoder */
-        if (clockwise) {
+        if (!clockwise) {
             tap_code(KC_VOLD);
         } else {
             tap_code(KC_VOLU);
         }
     } else if (index == 1) {
-        if (clockwise) {
+        if (!clockwise) {
             tap_code(KC_PGDN);
         } else {
             tap_code(KC_PGUP);
         }
     } else if (index == 2){
-        if (clockwise) {
+        if (!clockwise) {
             tap_code(KC_LEFT);
         } else {
             tap_code(KC_RGHT);
