@@ -23,7 +23,7 @@
 #define VENDOR_ID       0xFEED
 #define PRODUCT_ID      0x6062
 #define DEVICE_VER      0x0001
-#define PRODUCT editorMacros
+#define PRODUCT editormacros
 
 /* key matrix size */
 #define MATRIX_ROWS 5
@@ -40,11 +40,10 @@
 /* Debounce reduces chatter (unintended double-presses) - set 0 if debouncing is not needed */
 #define DEBOUNCE 5
 
-#define RGBLED_NUM 15
-#define RGB_DI_PIN D3
-
-#ifdef RGB_DI_PIN
-#define RGBLIGHT_ANIMATIONS
+#ifdef RGBLIGHT_ENABLE
+    #define RGBLED_NUM 15
+    #define RGB_DI_PIN D3
+    #define RGBLIGHT_ANIMATIONS
 #endif
 
 #define ENCODERS_PAD_A { B2, B3, F6 }
@@ -53,16 +52,13 @@
 #define ENCODER_RESOLUTION 4
 
 /* define oled display*/
-#define SSD1306OLED
-#define OLED_DISPLAY_128X64
-#define OLED_TIMEOUT 100000
+#ifdef OLED_ENABLE
+    #define SSD1306OLED
+    #define OLED_TIMEOUT 60000
+#endif
 /* disable debug print */
 //#define NO_DEBUG
 
 /* disable print */
 //#define NO_PRINT
 
-/* disable action features */
-//#define NO_ACTION_LAYER
-//#define NO_ACTION_TAPPING
-//#define NO_ACTION_ONESHOT
