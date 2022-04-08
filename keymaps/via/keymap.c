@@ -11,7 +11,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_LY0] = LAYOUT(
         KC_MSTP, KC_MPLY, KC_0, TO(1), KC_RGHT,
 		KC_ESC,  KC_MUTE, KC_1, KC_2, KC_3,
-		KC_SLEP, KC_WAKE, KC_4, KC_5, KC_6,
+		KC_WH_U, KC_WH_D, KC_4, KC_5, KC_6,
 		KC_LEFT, KC_ENT,  KC_7, KC_8, KC_9,
 		KC_VOLD, KC_VOLU, KC_PGDN, KC_PGUP
     ),
@@ -57,45 +57,49 @@ void matrix_scan_user(void) {
 // }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    uint8_t layer;
+    layer = biton32(layer_state);
+    uprintf("layer: %s，kc: 0x%04X",layer, keycode);
 	return true;
 }
 
 bool encoder_update_user(uint8_t index, bool clockwise) {
-    uint8_t layer = biton32(layer_state);
+    uint8_t layer;
+    layer = biton32(layer_state);
     if (index == 0) { /* First encoder */
         if (!clockwise) {
-           register_code(keymap_key_to_keycode(layer, (keypos_t) {.row = 4, .col = 0
+           register_code16(keymap_key_to_keycode(layer, (keypos_t) {.row = 4, .col = 0
             }));
-           unregister_code(keymap_key_to_keycode(layer, (keypos_t) {.row = 4, .col = 0
+           unregister_code16(keymap_key_to_keycode(layer, (keypos_t) {.row = 4, .col = 0
             }));
         } else {
-           register_code(keymap_key_to_keycode(layer, (keypos_t) {.row = 4, .col = 1
+           register_code16(keymap_key_to_keycode(layer, (keypos_t) {.row = 4, .col = 1
             }));
-           unregister_code(keymap_key_to_keycode(layer, (keypos_t) {.row = 4, .col = 1
+           unregister_code16(keymap_key_to_keycode(layer, (keypos_t) {.row = 4, .col = 1
             }));
         }
     } else if (index == 1) {
         if (!clockwise) {
-           register_code(keymap_key_to_keycode(layer, (keypos_t) {.row = 4, .col = 2
+           register_code16(keymap_key_to_keycode(layer, (keypos_t) {.row = 4, .col = 2
             }));
-           unregister_code(keymap_key_to_keycode(layer, (keypos_t) {.row = 4, .col = 2
+           unregister_code16(keymap_key_to_keycode(layer, (keypos_t) {.row = 4, .col = 2
             }));
         } else {
-            register_code(keymap_key_to_keycode(layer, (keypos_t) {.row = 4, .col = 3
+            register_code16(keymap_key_to_keycode(layer, (keypos_t) {.row = 4, .col = 3
             }));
-           unregister_code(keymap_key_to_keycode(layer, (keypos_t) {.row = 4, .col = 3
+           unregister_code16(keymap_key_to_keycode(layer, (keypos_t) {.row = 4, .col = 3
             }));
         }
     } else if (index == 2){
         if (!clockwise) {
-            register_code(keymap_key_to_keycode(layer, (keypos_t) {.row = 3, .col = 0
+            register_code16(keymap_key_to_keycode(layer, (keypos_t) {.row = 3, .col = 0
             }));
-           unregister_code(keymap_key_to_keycode(layer, (keypos_t) {.row = 3, .col = 0
+           unregister_code16(keymap_key_to_keycode(layer, (keypos_t) {.row = 3, .col = 0
             }));
         } else {
-            register_code(keymap_key_to_keycode(layer, (keypos_t) {.row = 0, .col = 4
+            register_code16(keymap_key_to_keycode(layer, (keypos_t) {.row = 0, .col = 4
             }));
-           unregister_code(keymap_key_to_keycode(layer, (keypos_t) {.row = 0, .col = 4
+           unregister_code16(keymap_key_to_keycode(layer, (keypos_t) {.row = 0, .col = 4
             }));
         }
     }
@@ -103,13 +107,14 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 }
 
 #ifdef OLED_ENABLE
-    oled_rotation_t oled_init_user(oled_rotation_t rotation) {
-        return rotation;
-    }
+oled_rotation_t oled_init_user(oled_rotation_t rotation) {
+    return rotation;
+}
 
-    bool oled_task_user(void) {
-        uint8_t layer = biton32(layer_state);
-        print("layer: %s", layer);
-        return false;
-    }
+bool oled_task_user(void) {
+    uint8_t layer;
+    layer = biton32(layer_state);
+    uprintf("layer: %s", layer);
+    return false;
+}
 #endif
