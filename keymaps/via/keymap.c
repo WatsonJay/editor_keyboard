@@ -3,8 +3,8 @@
 #define _LY0 0
 #define _LY1 1
 #define _LY2 2
-#define _LY3 3
-#define _SET 4
+// #define _LY3 3
+#define _SET 3
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -29,13 +29,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		_______, _______, _______, _______, _______,
 		_______, _______, _______, _______
     ),
-    [_LY3] = LAYOUT(
-        _______, _______, _______, TO(4), _______,
-		_______, _______, _______, _______, _______,
-		_______, _______, _______, _______, _______,
-		_______, _______, _______, _______, _______,
-		_______, _______, _______, _______
-    ),
+    // [_LY3] = LAYOUT(
+    //     _______, _______, _______, TO(4), _______,
+	// 	_______, _______, _______, _______, _______,
+	// 	_______, _______, _______, _______, _______,
+	// 	_______, _______, _______, _______, _______,
+	// 	_______, _______, _______, _______
+    // ),
     [_SET] = LAYOUT(
         KC_NO, KC_NO, KC_NO, TO(0), RGB_VAI,
 		RGB_TOG,  KC_NO, RGB_M_P, RGB_M_B, RGB_M_R,
@@ -59,13 +59,14 @@ void matrix_scan_user(void) {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     uint8_t layer;
     layer = biton32(layer_state);
-    uprintf("layer: %s，kc: 0x%04X",layer, keycode);
+    uprintf("layer: %d，kc: 0x%04X\n",layer, keycode);
 	return true;
 }
 
 bool encoder_update_user(uint8_t index, bool clockwise) {
     uint8_t layer;
     layer = biton32(layer_state);
+    uprintf("layer: %d，index: %d\n",layer, index);
     if (index == 0) { /* First encoder */
         if (!clockwise) {
            register_code16(keymap_key_to_keycode(layer, (keypos_t) {.row = 4, .col = 0
