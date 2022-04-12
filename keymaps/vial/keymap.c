@@ -6,7 +6,7 @@
 // #define _LY3 3
 #define _SET 3
 
-uint8_t type_count = 0 ;
+uint16_t type_count = 0 ;
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 

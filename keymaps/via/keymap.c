@@ -6,6 +6,8 @@
 // #define _LY3 3
 #define _SET 3
 
+uint16_t type_count = 0 ;
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_LY0] = LAYOUT(
@@ -59,7 +61,10 @@ void matrix_scan_user(void) {
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     uint8_t layer;
     layer = biton32(layer_state);
-    uprintf("layer: %d，kc: 0x%04X\n",layer, keycode);
+    uprintf("layer: 0x%X，kc: 0x%04X\n",layer, keycode);
+    if (record->event.pressed) {
+        type_count ++;
+    }
 	return true;
 }
 
