@@ -22,6 +22,5 @@ BACKLIGHT_ENABLE = no  # Enable keyboard backlight functionality
 RGBLIGHT_ENABLE = yes   # Enable keyboard RGB underglow
 AUDIO_ENABLE = no
 ENCODER_ENABLE = yes
-WPM_ENABLE = yes
 OLED_ENABLE = yes
 OLED_DRIVER = SSD1306
