@@ -144,11 +144,11 @@ static void render_timer(void) {
     string[7] = '0' + uptime_sec % 10;
     string[6] = (uptime_sec /= 10) % 6 ? '0' + (uptime_sec) % 6 : '0';
     string[5] = ':';
-    string[4] = (uptime_sec /= 60) % 10 ? '0' + (uptime_sec) % 10 : '0';
-    string[3] = (uptime_sec /= 600) % 6 ? '0' + (uptime_sec) % 6 : '0';
+    string[4] = (uptime_sec /= 6) % 10 ? '0' + (uptime_sec) % 10 : '0';
+    string[3] = (uptime_sec /= 10) % 6 ? '0' + (uptime_sec) % 6 : '0';
     string[2] = ':';
-    string[1] = (uptime_sec /= 3600) % 10 ? '0' + (uptime_sec) % 10 : '0';
-    string[0] = (uptime_sec /= 36000) % 6 ? '0' + (uptime_sec) % 6 : '0';
+    string[1] = (uptime_sec /= 6) % 10 ? '0' + (uptime_sec) % 10 : '0';
+    string[0] = (uptime_sec /= 10) % 6 ? '0' + (uptime_sec) % 6 : '0';
     oled_write_P(PSTR("onTime: "), false);
     oled_write(string, false);
     oled_write_ln_P(PSTR(" "), false);
