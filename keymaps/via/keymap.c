@@ -59,9 +59,6 @@ void matrix_scan_user(void) {
 // }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-    uint8_t layer;
-    layer = biton32(layer_state);
-    uprintf("layer: 0x%X，kc: 0x%04X\n",layer, keycode);
     if (record->event.pressed) {
         type_count ++;
     }
@@ -71,7 +68,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 bool encoder_update_user(uint8_t index, bool clockwise) {
     uint8_t layer;
     layer = biton32(layer_state);
-    uprintf("layer: %d，index: %d\n",layer, index);
     if (index == 0) { /* First encoder */
         if (!clockwise) {
            register_code16(keymap_key_to_keycode(layer, (keypos_t) {.row = 4, .col = 0
@@ -160,10 +156,23 @@ static void render_count(void) {
     oled_write_ln_P(PSTR(" "), false);
 }
 
+static void render_wpm() {
+    uint8_t n = get_current_wpm();
+    char    wpm_counter[4];
+    wpm_counter[3] = '\0';
+    wpm_counter[2] = '0' + n % 10;
+    wpm_counter[1] = (n /= 10) % 10 ? '0' + (n) % 10 : (n / 10) % 10 ? '0' : ' ';
+    wpm_counter[0] = n / 10 ? '0' + n / 10 : ' ';
+    oled_write_P(PSTR("WPM:"), false);
+    oled_write(wpm_counter, false);
+    oled_write_ln_P(PSTR(" "), false);
+}
+
 bool oled_task_user(void) {
     render_info();
     render_timer();
     render_count();
+    render_wpm();
     return false;
 }
 #endif
