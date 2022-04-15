@@ -156,7 +156,7 @@ static void render_count(void) {
     oled_write_ln_P(PSTR(" "), false);
 }
 
-static void render_wpm() {
+static void render_wpm(void) {
     uint8_t n = get_current_wpm();
     char    wpm_counter[4];
     wpm_counter[3] = '\0';
