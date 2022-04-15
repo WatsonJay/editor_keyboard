@@ -1,9 +1,7 @@
 #include QMK_KEYBOARD_H
-// #include "print.h"
 #define _LY0 0
 #define _LY1 1
 #define _LY2 2
-// #define _LY3 3
 #define _SET 3
 
 uint16_t type_count = 0 ;
