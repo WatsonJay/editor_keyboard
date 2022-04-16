@@ -58,7 +58,8 @@
 /* define oled display*/
 #ifdef OLED_ENABLE
     #define SSD1306OLED
-    #define OLED_TIMEOUT 60000
+    #define OLED_TIMEOUT 10000
+    #define OLED_BRIGHTNESS 180
 #endif
 /* disable debug print */
 //#define NO_DEBUG
