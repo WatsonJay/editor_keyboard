@@ -136,7 +136,8 @@ static void render_info(void) {
 static void render_timer(void) {
     uint32_t uptime_millsec = timer_read32 ();
     uint32_t uptime_sec = uptime_millsec / 1000 ;
-    char string[8];
+   char string[9];
+    string[8] = '\0';
     string[7] = '0' + uptime_sec % 10;
     string[6] = (uptime_sec /= 10) % 6 ? '0' + (uptime_sec) % 6 : '0';
     string[5] = ':';

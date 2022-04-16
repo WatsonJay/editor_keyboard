@@ -84,7 +84,8 @@ static void render_info(void) {
 static void render_timer(void) {
     uint32_t uptime_millsec = timer_read32 ();
     uint32_t uptime_sec = uptime_millsec / 1000 ;
-    char string[8];
+    char string[9];
+    string[8] = '\0';
     string[7] = '0' + uptime_sec % 10;
     string[6] = (uptime_sec /= 10) % 6 ? '0' + (uptime_sec) % 6 : '0';
     string[5] = ':';
@@ -93,7 +94,7 @@ static void render_timer(void) {
     string[2] = ':';
     string[1] = (uptime_sec /= 6) % 10 ? '0' + (uptime_sec) % 10 : '0';
     string[0] = (uptime_sec /= 10) % 6 ? '0' + (uptime_sec) % 6 : '0';
-    oled_write_P(PSTR("onTime: "), false);
+    oled_write_P(PSTR("ontime: "), false);
     oled_write(string, false);
     oled_write_ln_P(PSTR(" "), false);
 }
@@ -108,6 +109,7 @@ bool oled_task_user(void) {
     render_info();
     render_timer();
     render_count();
+    oled_write_P(PSTR("welcome to use editorMacros!"), false);
     return false;
 }
 #endif
