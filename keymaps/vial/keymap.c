@@ -56,6 +56,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 }
 
 bool encoder_update_user(uint8_t index, bool clockwise) {
+    // vial_encoder_update need to change return encoder_update_user(index, clockwise)
     type_count ++;
     oled_timer = timer_read32();
     return true;
