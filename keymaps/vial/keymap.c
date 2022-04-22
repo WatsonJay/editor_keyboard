@@ -107,7 +107,7 @@ static void render_timer(void) {
 
 static void render_count(void) {
     oled_write_P(PSTR("tapcount: "), false);
-    oled_write(get_u8_str(type_count, ' '), false);
+    oled_write(get_u16_str(type_count, ' '), false);
     oled_write_ln_P(PSTR(" "), false);
 }
 
