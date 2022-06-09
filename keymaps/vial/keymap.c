@@ -138,7 +138,7 @@ bool oled_task_user(void) {
             render_info();
             render_timer();
             render_count();
-            oled_write_ln_P(PSTR("hello editorMacros!"), false);
+            // oled_write_ln_P(PSTR("hello editorMacros!"), false);
         }
     }
 
