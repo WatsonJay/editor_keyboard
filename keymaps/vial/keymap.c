@@ -111,6 +111,18 @@ static void render_count(void) {
     oled_write_ln_P(PSTR(" "), false);
 }
 
+static void render_wpm(void) {
+    uint8_t n = get_current_wpm();
+    char    wpm_counter[4];
+    wpm_counter[3] = '\0';
+    wpm_counter[2] = '0' + n % 10;
+    wpm_counter[1] = (n /= 10) % 10 ? '0' + (n) % 10 : (n / 10) % 10 ? '0' : ' ';
+    wpm_counter[0] = n / 10 ? '0' + n / 10 : ' ';
+    oled_write_P(PSTR("WPM:"), false);
+    oled_write(wpm_counter, false);
+    oled_write_ln_P(PSTR(" "), false);
+}
+
 static void render_logo(void) {
     static const char PROGMEM qmk_logo[] = {
         0x80, 0x81, 0x82, 0x83, 0x84, 0x85, 0x86, 0x87, 0x88, 0x89, 0x8A, 0x8B, 0x8C, 0x8D, 0x8E, 0x8F, 0x90, 0x91, 0x92, 0x93, 0x94,
@@ -138,6 +150,7 @@ bool oled_task_user(void) {
             render_info();
             render_timer();
             render_count();
+            render_wpm();
             // oled_write_ln_P(PSTR("hello editorMacros!"), false);
         }
     }

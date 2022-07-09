@@ -4,7 +4,7 @@
     "maintainer": "WatsonJay",
     "vendorId": "0xFEED",
     "productId": "0x6062",
-    "lighting": "qmk_rgblight",
+    "lighting": "vialrgb",
     "matrix": { "rows": 5, "cols": 5 },
     "layouts": {
         "keymap": [
